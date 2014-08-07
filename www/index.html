@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<!--
+App-o-Mat jQuery Mobile Cordova starter template
+Copyright 2014 Lou Franco
+https://github.com/app-o-mat/jqm-cordova-template-project
+http://app-o-mat.com
+
+MIT License
+https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
+-->
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+
+	<title>App-o-Mat</title>
+
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="lib/jquery-mobile/css/jquery.mobile-1.4.0.min.css" />
+
+	<script type="text/javascript" src="lib/jquery-mobile/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-mobile-router/js/jquery.mobile.router.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-mobile/js/jquery.mobile-1.4.0.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+
+  <script>window._cordovaNative = true;</script>
+
+</head>
+
+<body>
+<div data-role="page" id="home">
+	<div data-role="header" data-position="fixed">
+		<h1>App-o-Mat</h1>
+	 	<a data-icon="refresh" class="ui-btn-left" id="home-refresh-btn">Refresh</a>
+		<a href="#settings" data-icon="gear" data-transition="slideup" class="ui-btn-right">Settings</a>
+	</div>
+
+	<div role="main" class="ui-content" id="home-content">
+	</div>
+</div>
+<script id="blog-list-template" type="text/x-handlebars-template">
+	<ul id="blog-list" data-role="listview">
+	{{#.}}<li><a href="#post?{{@index}}" style="white-space:normal" data-transition="slide">{{title}}</a></li>{{/.}}
+	</ul>
+</script>
+
+<div data-role="page" id="post">
+	<div data-role="header" data-position="fixed">
+		<h1>Post</h1>
+		<a href="#home" data-transition="slide" data-direction="reverse" data-icon="arrow-l" class="ui-btn-left">Home</a>
+		<a data-icon="star" class="ui-btn-right" id="post-save-btn">Save</a>
+	</div>
+
+	<div role="main" class="ui-content" id="post-content">
+	</div>
+</div>
+
+<script id="post-template" type="text/x-handlebars-template">
+<h2><a href="{{url}}" target="_blank">{{title}}</a></h2>
+<div>{{{body}}}</div>
+</script>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="lib/fastclick/js/fastclick.js"></script>
+<script type="text/javascript" src="lib/handlebars/js/handlebars-v1.3.0.js"></script>
+
+<script type="text/javascript">
+	appomat.app.initialize();
+</script>
+
+</body>
+</html>
